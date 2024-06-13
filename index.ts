@@ -1,32 +1,20 @@
-// Generics
+// OOP
+class User {
+  // access modifiers (abstraction)
+  public name: string;
+  public age: number;
 
-//API
-// expected response from an API
-interface APIResponse<T> {
-  data: T;
-  statusCode: number;
-  error: object | null;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  sayHello(): void {
+    console.log(`${this.name} says hello`);
+  }
 }
 
-// /users
-interface User {
-  name: string;
-  email: string;
-}
-
-const userResponse: APIResponse<User[]> = {
-  data: [{ name: "Klara Kimani", email: "klara@kimani.com" }],
-  statusCode: 200,
-  error: null,
-};
-
-// /order
-interface Order {
-  userID: number;
-  meal: string;
-}
-const orderResponse: APIResponse<Order[]> = {
-  data: [{ userID: 32, meal: "chicken tikka pizza" }],
-  statusCode: 200,
-  error: null,
-};
+const student = new User("Kimani", 16);
+const teacher = new User("Bill Gates", 10);
+console.log(student.name); // Kimani
+console.log(teacher.name); // Bill Gates
