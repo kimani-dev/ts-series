@@ -13,7 +13,6 @@ class User {
   public sayHello(): void {
     console.log(`${this.name} says hello`);
   }
-
 }
 
 // inheritance
@@ -41,4 +40,47 @@ console.log(date.getFullYear()); // 2024
 
 function add() {
   return 1 + 2;
+}
+
+// shorter way of writing huge classes
+class Car {
+  static something: string = "No idea";
+
+  constructor(
+    public readonly color: string,
+    public model: string,
+    public doors: number,
+    public yearOfManufacture: number
+  ) {}
+
+  public move() {
+    console.log("vroooom!");
+  }
+
+  public static fetchAll(): Car[] {
+    return [] as Car[];
+  }
+}
+
+const mercedes = new Car("Light Gray", "E-250", 4, 2019);
+const xx: string = Car.something;
+const cars: Car[] = Car.fetchAll();
+
+// example of a static method usage
+let salary: number = 0;
+const salaryString = "190000";
+salary = Number.parseInt(salaryString);
+
+// interfaces
+interface Person {
+  name: string;
+  login: () => number;
+}
+
+class Driver implements Person {
+  constructor(public name: string) {}
+
+  public login() {
+    return 19;
+  }
 }
